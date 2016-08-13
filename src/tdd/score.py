@@ -6,6 +6,13 @@ def score(dice):
             return 100
         return 0
 
+    def count_and_remove(l, val):
+        n = count(l, val)
+        is_spl_case = (n >= 3)
+        if is_spl_case:
+            l = remove(l, val)
+        return (is_spl_case, l)
+
     def count(l, val):
         return len([i for i in l if i == val])
 
@@ -17,17 +24,17 @@ def score(dice):
 
     value = 0
 
-    if count(dice, 1) >= 3:
-        dice = remove(dice, 1)
+    is_spl_case, dice = count_and_remove(dice, 1)
+    if is_spl_case:
         value += 1000
 
-    if count(dice, 5) >= 3:
-        dice = remove(dice, 5)
+    is_spl_case, dice = count_and_remove(dice, 5)
+    if is_spl_case:
         value += 500
 
     for i in [2, 3, 4, 6]:
-        if count(dice, i) >= 3:
-            dice = remove(dice, i)
+        is_spl_case, dice = count_and_remove(dice, i)
+        if is_spl_case:
             value += i * 100
 
     if len(dice) == 0:
