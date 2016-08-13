@@ -35,8 +35,9 @@ Recently was playing with Python Koans. It was very good to practice python and 
 
  Examples:
 
+```
  score([1,1,1,5,1]) => 1150 points
  score([2,3,4,6,2]) => 0 points
  score([3,4,5,3,3]) => 350 points
  score([1,5,1,2,4]) => 250 points
-
+```
