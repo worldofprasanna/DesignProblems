@@ -4,6 +4,7 @@ def score(dice):
             return 50
         if 1 == n:
             return 100
+        return 0
 
     value = 0
     if len(dice) == 0:
