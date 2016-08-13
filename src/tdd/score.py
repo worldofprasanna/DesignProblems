@@ -25,6 +25,10 @@ def score(dice):
         dice = remove(dice, 5)
         value += 500
 
+    for i in [2, 3, 4, 6]:
+        if count(dice, i) >= 3:
+            dice = remove(dice, i)
+            value += i * 100
 
     if len(dice) == 0:
         return value

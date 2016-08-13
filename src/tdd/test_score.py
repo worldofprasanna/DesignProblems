@@ -20,3 +20,11 @@ def test_score_of_a_triple_1_is_1000():
 
 def test_score_of_a_triple_5_is_500():
     assert 500 == score([5,5,5])
+
+def test_score_of_other_triples_is_100x():
+    assert 200 == score([2,2,2])
+    assert 300 == score([3,3,3])
+    assert 400 == score([4,4,4])
+    assert 500 == score([5,5,5])
+    assert 600 == score([6,6,6])
+
