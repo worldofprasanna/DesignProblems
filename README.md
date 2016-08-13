@@ -3,14 +3,14 @@
 
 **TDD**
 
-Recently was playing around with Python Koans. It was very good to practice python and could get the flavour of TDD. Implemented one of the solution using TDD and it can be seen in the commit history.
+Recently was playing with Python Koans. It was very good to practice python and could get the flavour of TDD. Implemented one of the solution using TDD and it can be seen in the commit history.
 
 *To run the test:*
 
-* Create virtual env using mkvirtualenv -p /usr/local/bin/python3 tdd
-* Install pytest - pip install pytest
-* Install test watch - pip install pytest pytest-xdist pytest-cov
-* Run test using command py.test -f test_score.py
+* Create virtual env using `mkvirtualenv -p /usr/local/bin/python3 tdd`
+* Install pytest - `pip install pytest`
+* Install test watch - `pip install pytest pytest-xdist pytest-cov`
+* Run test using command `py.test -f test_score.py`
 
 
 *problem*:
