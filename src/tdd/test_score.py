@@ -28,3 +28,13 @@ def test_score_of_other_triples_is_100x():
     assert 500 == score([5,5,5])
     assert 600 == score([6,6,6])
 
+def test_score_of_mixed_is_sum():
+    assert 250 == score([2,5,2,2,3])
+    assert 550 == score([5,5,5,5])
+    assert 1150 == score([1,1,1,5,1])
+
+def test_ones_not_left_out():
+    assert 300 == score([1,2,2,2])
+    assert 350 == score([1,5,2,2,2])
+
+
