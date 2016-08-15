@@ -1,5 +1,12 @@
 # DesignProblems
 
+**Steps to run the project**
+
+1. Create virtualenv `mkvirtualenv -p /usr/local/bin/python3 design_problems`
+2. `workon design_problems`
+3. Install dependencies `pip install -r requirements.txt`
+4. To run the test continously `sniffer`
+
 
 **TDD**
 
