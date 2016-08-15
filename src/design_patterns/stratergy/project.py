@@ -8,3 +8,14 @@ class PythonProject(Project):
 class JavaProject(Project):
     pass
 
+# Behaviours
+
+class Deployment:
+    pass
+
+class Puppet(Deployment):
+    pass
+
+class Ansible(Deployment):
+    pass
+

@@ -1,4 +1,6 @@
 from .project import Project, PythonProject, JavaProject
+from .project import Deployment, Puppet, Ansible
+
 
 def test_projects_can_be_created():
     project = Project()
@@ -8,3 +10,11 @@ def test_projects_can_be_created():
     assert java_project is not None
     assert python_project is not None
 
+def test_deployments_can_be_created():
+    deployment = Deployment()
+    puppet = Puppet()
+    ansible = Ansible()
+
+    assert deployment is not None
+    assert puppet is not None
+    assert ansible is not None
