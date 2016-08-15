@@ -1,6 +1,10 @@
 # Base classes
 class Project:
-    pass
+    def __init__(self):
+        self.deployment_statergy = Deployment()
+
+    def deploy(self):
+        self.deployment_statergy.deploy()
 
 class PythonProject(Project):
     pass
@@ -11,7 +15,8 @@ class JavaProject(Project):
 # Behaviours
 
 class Deployment:
-    pass
+    def deploy(self):
+        raise NotImplementedError('This is an abstract deployment')
 
 class Puppet(Deployment):
     pass
