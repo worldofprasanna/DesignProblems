@@ -1,5 +1,10 @@
-from .project import Project
+from .project import Project, PythonProject, JavaProject
 
-def test_project_can_be_created():
+def test_projects_can_be_created():
     project = Project()
-    assert project
+    python_project = PythonProject()
+    java_project = JavaProject()
+    assert project is not None
+    assert java_project is not None
+    assert python_project is not None
+
