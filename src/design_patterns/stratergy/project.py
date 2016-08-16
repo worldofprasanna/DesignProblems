@@ -20,11 +20,17 @@ class PythonProject(Project):
         if strategy:
             self.strategy = strategy
 
+    def deploy(self):
+        return 'python - ' + super().deploy()
+
 class JavaProject(Project):
     def __init__(self, strategy = None):
         super().__init__()
         if strategy:
             self.strategy = strategy
+
+    def deploy(self):
+        return 'java - ' + super().deploy()
 
 # Behaviours
 
