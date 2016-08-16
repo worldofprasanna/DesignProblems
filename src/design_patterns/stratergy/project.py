@@ -1,7 +1,7 @@
 # Base classes
 class Project:
     def __init__(self):
-        self.strategy = Deployment()
+        self.strategy = DeploymentFactory.get_deployer()
 
     @property
     def strategy(self):
@@ -39,3 +39,14 @@ class Puppet(Deployment):
 class Ansible(Deployment):
     def deploy(self):
         return 'ansible provisioning done'
+
+class DeploymentFactory:
+
+    @staticmethod
+    def get_deployer(name=None):
+        if name == 'ansible':
+            return Ansible()
+        elif name == 'puppet':
+            return Puppet()
+        else:
+            return Deployment()

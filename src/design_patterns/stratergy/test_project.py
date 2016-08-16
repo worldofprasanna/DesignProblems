@@ -1,6 +1,7 @@
 import pytest
 from .project import Project, PythonProject, JavaProject
 from .project import Deployment, Puppet, Ansible
+from .project import DeploymentFactory
 
 
 def test_projects_can_be_created():
@@ -31,7 +32,7 @@ def test_python_project_cannot_be_deployed_unless_strategy_specified():
         project.deploy()
 
 def test_python_project_deployed_with_ansible():
-    ansible = Ansible()
+    ansible = DeploymentFactory.get_deployer('ansible')
     project = PythonProject(ansible)
     #project.strategy = ansible
     result = project.deploy()
@@ -39,7 +40,7 @@ def test_python_project_deployed_with_ansible():
     assert project.strategy == ansible
 
 def test_java_project_deployed_with_puppet():
-    puppet = Puppet()
+    puppet = DeploymentFactory.get_deployer('puppet')
     project = JavaProject(puppet)
     #project.strategy = ansible
     result = project.deploy()
