@@ -1,13 +1,24 @@
 # Base classes
 class Project:
     def __init__(self):
-        self.deployment_statergy = Deployment()
+        self.strategy = Deployment()
+
+    @property
+    def strategy(self):
+        return self._strategy
+
+    @strategy.setter
+    def strategy(self, strategy):
+        self._strategy = strategy
 
     def deploy(self):
-        self.deployment_statergy.deploy()
+        return self.strategy.deploy()
 
 class PythonProject(Project):
-    pass
+    def __init__(self, strategy = None):
+        super().__init__()
+        if strategy:
+            self.strategy = strategy
 
 class JavaProject(Project):
     pass
@@ -19,8 +30,9 @@ class Deployment:
         raise NotImplementedError('This is an abstract deployment')
 
 class Puppet(Deployment):
-    pass
+    def deploy(self):
+        return 'puppet provisioning done'
 
 class Ansible(Deployment):
-    pass
-
+    def deploy(self):
+        return 'ansible provisioning done'

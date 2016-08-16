@@ -25,4 +25,17 @@ def test_base_project_cannot_be_deployed():
         project=Project()
         project.deploy()
 
+def test_python_project_cannot_be_deployed_unless_strategy_specified():
+    with pytest.raises(NotImplementedError):
+        project = PythonProject()
+        project.deploy()
+
+def test_python_project_deployed_with_puppet():
+    ansible = Ansible()
+    project = PythonProject(ansible)
+    #project.strategy = ansible
+    result = project.deploy()
+    assert result == 'ansible provisioning done'
+    assert project.strategy == ansible
+
 
