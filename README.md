@@ -17,7 +17,7 @@ Recently was playing with Python Koans. It was very good to practice python and 
 * Create virtual env using `mkvirtualenv -p /usr/local/bin/python3 tdd`
 * Install pytest - `pip install pytest`
 * Install test watch - `pip install pytest pytest-xdist pytest-cov`
-* Run test using command `py.test -f test_score.py`
+* Run test using command `py.test -f src/`
 
 
 *problem*:
