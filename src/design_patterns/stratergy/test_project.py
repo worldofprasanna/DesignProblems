@@ -30,12 +30,20 @@ def test_python_project_cannot_be_deployed_unless_strategy_specified():
         project = PythonProject()
         project.deploy()
 
-def test_python_project_deployed_with_puppet():
+def test_python_project_deployed_with_ansible():
     ansible = Ansible()
     project = PythonProject(ansible)
     #project.strategy = ansible
     result = project.deploy()
     assert result == 'ansible provisioning done'
     assert project.strategy == ansible
+
+def test_java_project_deployed_with_puppet():
+    puppet = Puppet()
+    project = JavaProject(puppet)
+    #project.strategy = ansible
+    result = project.deploy()
+    assert result == 'puppet provisioning done'
+    assert project.strategy == puppet
 
 

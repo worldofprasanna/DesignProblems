@@ -21,7 +21,10 @@ class PythonProject(Project):
             self.strategy = strategy
 
 class JavaProject(Project):
-    pass
+    def __init__(self, strategy = None):
+        super().__init__()
+        if strategy:
+            self.strategy = strategy
 
 # Behaviours
 
