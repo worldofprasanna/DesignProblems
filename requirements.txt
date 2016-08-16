@@ -1,2 +1,5 @@
 sniffer
+pytest
+pytest-xdist
+pytest-cov
 
