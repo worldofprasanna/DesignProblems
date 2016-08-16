@@ -31,20 +31,22 @@ def test_python_project_cannot_be_deployed_unless_strategy_specified():
         project = PythonProject()
         project.deploy()
 
-def test_python_project_deployed_with_ansible():
-    ansible = DeploymentFactory.get_deployer('ansible')
-    project = PythonProject(ansible)
+@pytest.mark.parametrize('deployer', ['ansible', 'puppet'])
+def test_python_project_deployed(deployer):
+    deployment_type = DeploymentFactory.get_deployer(deployer)
+    project = PythonProject(deployment_type)
     #project.strategy = ansible
     result = project.deploy()
-    assert result == 'ansible provisioning done'
-    assert project.strategy == ansible
+    assert result == '{0} provisioning done'.format(deployer)
+    assert project.strategy == deployment_type
 
-def test_java_project_deployed_with_puppet():
-    puppet = DeploymentFactory.get_deployer('puppet')
-    project = JavaProject(puppet)
+@pytest.mark.parametrize('deployer', ['ansible', 'puppet'])
+def test_java_project_deployed_with_puppet(deployer):
+    deployment_type = DeploymentFactory.get_deployer(deployer)
+    project = JavaProject(deployment_type)
     #project.strategy = ansible
     result = project.deploy()
-    assert result == 'puppet provisioning done'
-    assert project.strategy == puppet
+    assert result == '{0} provisioning done'.format(deployer)
+    assert project.strategy == deployment_type
 
 
